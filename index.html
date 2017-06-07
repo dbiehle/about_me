@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!-- As a developer, I want to convert some of my appropriate biographical elements into unordered lists, such as my education summary and/or my work experience. -->
-
-<!-- As a prospective job seeker, I want to make myself more personable by adding a Top Ten list to the bottom of my About Me page with an ordered list in HTML, for instance, my Top Ten Favorite Movies or my Top Ten Places I Want to Visit, or something along those lines. -->
-
-<!-- Per the user stories, you will need to include in your HTML at least one each of an ordered and an unordered list. -->
 
 <!-- As a prospective job seeker, I want to consider adopting additional features that I have seen in the 'About Me' projects made by others, so that my 'About Me' can become more thorough and interesting than my original conception. -->
 
@@ -13,14 +8,47 @@
     <link href="css/style.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
-    <header>
-      <h1>Get your learn on</h1>
-      <h3>Dropping the 411 on Drew Biehle</h3>
-    </header>
-    <p>In case it hasn't started yet, you should get a few windows asking about the one and (possibly?) only: Drew Biehle.</p>
-    <img src="https://ak3.picdn.net/shutterstock/videos/4522772/thumb/1.jpg" >
+    <section>
+      <header>
+        <h1>Drew Biehle</h1>
+        <h2>Software Developer</h2>
+      </header>
+    </section>
+    <section class="bodblock">
+      <article>
+        <h3>Education</h3>
+        <ul>
+          <li>Code Fellows  (<span class="yearstv">2017</span>)</li>
+          <li>Northwestern University  (<span class="yearstv">1993 - 1997</span>)</li>
+          <li>The Streetz  (<span class="yearstv">all other years</span>)</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Work Experience</h3>
+        <ul>
+          <li>Counter Server  (<span class="jobloc">Eltana</span>)</li>
+          <li>Senior Research Manager  (<span class="jobloc">OTX/Ipsos</span>)</li>
+          <li>Data Processor  (<span class="jobloc">Kantar Operations</span>)</li>
+        </ul>
+      </article>
+    </section>
+    <section class="bodblock">
+      <h4>Best 10 TV Shows Ever</h4>
+      <ol class="yearstv">
+        <li>Rectify</li>
+        <li>Breaking Bad</li>
+        <li>Six Feet Under</li>
+        <li>The Venture Bros.</li>
+        <li>Rick &amp; Morty</li>
+        <li>Family Ties</li>
+        <li>Steven Universe</li>
+        <li>Heidi (2015) </li>
+        <li>The Adventures of Pete &amp; Pete</li>
+        <li>Banshee</li>
+      </ol>
+    </section>
     <footer>
-      <script src="js/app.js"></script>
+      <!-- <script src="js/app.js"></script> -->
     </footer>
   </body>
 </html>
