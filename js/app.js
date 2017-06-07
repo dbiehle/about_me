@@ -1,14 +1,13 @@
 'use strict'
 // Design a guessing game about you that involves FIVE yes/no questions.
-//    Be creative and fun and whimsical. Or not. It's up to you! It's your project!
-// The questions in the guessing game must require a mix of yes/no answers,
-//    and user input must accept either y/n or yes/no responses,
-//    with either .toUpperCase() or .toLowerCase() used to validate the user
-//    input and accommodate users entering all-caps Y/N or YES/NO answers, too.
-// Useful and descriptive console.log() messages in the JS are well written
-//    and correctly displaying to the browser console for each question of the
-//    guessing game.
+// As a developer, I want to add a sixth question to my guessing game that takes numeric input by prompting a user to guess a number (for instance, "What is my favorite number?" or "How many Pokémon did I catch yesterday?"), and indicates to the user whether the guess is 'too high' or 'too low', and gives the user exactly four opportunities to get the correct answer, so that my fancy programming skills are showcased.
+// As a developer, I want to add a seventh question to my guessing game that has multiple possible correct answers that are stored in an array. For instance, "Can you guess a state that I have lived in besides Washington?", so that even more of my programming skills are showcased. For now, I will structure this question so that the user has six tries to get a single correct answer, and upon using up those tries OR getting a correct answer, displays a message to the user indicating all of the possible correct answers.
+// As a developer, I want to keep a tally of the total number of correct answers given by the user, and at the end of the game, tell the user how well they did with a personalized custom message that includes the number of correct answers and also addresses the user by name, e.g. "You got 4 out of 7 questions correct, Bobbi! Better luck next time."
 
+// Use promptfor input and alert for output to the user, unless you are working on the third Stretch Goal.
+// Do not use any 'switch' statements in your JavaScript.
+// Do not write any functions in your JavaScript.
+// Expect that you will probably need both 'for' and 'while' structures for your sixth and seventh questions. But not necessarily.
 var userTally = 0;
 // FIVE YES/NO QUESTIONS:
 alert('Here are 5 questions about Drew. Please answer either Yes or No.');
