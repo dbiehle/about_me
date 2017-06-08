@@ -19,14 +19,22 @@ var lovesYou;
 userName = prompt('Presenting here 7 questions about Drew. Provide your best guesses and don\'t plagiarize! First, though, what can I call you?');
 console.log('User\'s name: ' + userName);
 
-question1();
-question2();
-question3();
-question4();
-question5();
-question6();
-question7();
-endLogic();
+var allQuestions = [
+  question1,
+  question2,
+  question3,
+  question4,
+  question5,
+  question6,
+  question7,
+  endLogic
+];
+
+for(var i = 0; i < allQuestions.length; i++ ) {
+  console.log('This is the value of i: ' + i);
+  allQuestions[i]();
+}
+
 
 //    1. number of legs >=4? (changed from =2 on day 3 to add another no response)
 function question1(){
