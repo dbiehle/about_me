@@ -1,5 +1,6 @@
 'use strict';
-// Design a guessing game about you that involves FIVE yes/no questions and TWO other questions.
+// A guessing game about me that involves FIVE yes/no questions and
+//  TWO new questions.
 
 // global variables declared
 var userTally = 0;
@@ -15,8 +16,8 @@ var costumeGuess = [];
 var costumeCorrect = false;
 var lovesYou;
 
-// FIVE YES/NO QUESTIONS:
 userName = prompt('Presenting here 7 questions about Drew. Provide your best guesses and don\'t plagiarize! First, though, what can I call you?');
+console.log('User\'s name: ' + userName);
 
 //    1. number of legs >=4? (changed from =2 on day 3 to add another no response)
 numLegs = prompt('Okay, let\'s talk legs. Does Drew have 4 or more legs?').toUpperCase();
@@ -30,6 +31,7 @@ if (numLegs === 'NO' || numLegs === 'N') {
 } else {
   alert('I\'m pretty sure that "' + numLegs + '" is not an answer. So... next question.');
 }
+
 //    2. still breathing?
 breathing = prompt('Is Drew still breathing?', 'please say yes').toUpperCase();
 console.log('Still breathing: ' + breathing);
@@ -51,7 +53,7 @@ if (homePlanet === 'YES' || homePlanet === 'Y') {
   userTally++;
   alert('"' + homePlanet + '." Cool. You should give him a call sometime. One more point for you for a total of: ' + userTally);
 } else if (homePlanet === 'NO' || homePlanet === 'N') {
-  alert('Wrong. He here. In fact, he\'s standing right behind you. You have ' + userTally + ' points.');
+  alert('Wrong. He here. In fact, he\'s standing right behind you. You have ' + userTally + ' point(s).');
 } else {
   alert('No comprende, chica.');
 }
@@ -64,7 +66,7 @@ if (gutBiota === 'YES' || gutBiota === 'Y') {
   alert('Wrong. He eats yogurt everyday and drinks kombucha on the reg. You have ' + userTally + ' point(s).');
 } else if (gutBiota === 'NO' || gutBiota === 'N') {
   userTally++;
-  alert('Very good. But how did you know that? I\'m getting a creepy vibe from you. You now have ' + userTally + ' points, but I\'d kinda like to take away a point.');
+  alert('Very good. But how did you know that? I\'m getting a creepy vibe from you. You now have ' + userTally + ' point(s), but I\'d kinda like to take away a point.');
 } else {
   alert('You said "' + gutBiota + '." Not an answer. I have a question for you, though. Are you gut bacteria with eyes and extremely long fingers?');
 }
@@ -84,19 +86,20 @@ for (var i = 0; i < 4; i++) {
   } else if (i < 3 && heartBreak[i] < 18) {
     alert('You said ' + heartBreak[i] + '. Oh, you sweet naive muckle. More than that. Try again.');
   } else if (i < 3 && heartBreak[i] > 18) {
-    alert('You said ' + heartBreak[i] + '. Dude. I mean... I\'ve loved hard but not THAT hard. Less than that. Try again.');
+    alert('You said ' + heartBreak[i] + '. Dude. I mean... He\'s loved hard but not THAT hard. Less than that. Try again.');
+  } else if (i < 3 && typeof heartBreak[i] === 'string') {
+    alert('As much as I love weird responses, you should just try guessing again, but a number this time.');
   // if this is the last attempt and still not correct, give following alert
   } else if (i = 3) {
-    alert('You said ' + hbAttempts[3] + '. No, none of your guesses were correct. The correct answer WAS 18, but you\'ve just made that number go up to 19. You now have ' + userTally + ' point(s).');
+    alert('You said ' + heartBreak[3] + '. No, none of your guesses were correct. The correct answer WAS 18, but you\'ve just made that number go up to 19. You now have ' + userTally + ' point(s).');
   }
 }
 
-//    6. Guess one of the Halloween costumes Drew remembers
+//  6. Guess one of the Halloween costumes Drew remembers
 costumes = ['steven universe', 'crazy old coot', 'tiger', 'girl in a robert palmer video', 'pee-wee herman', 'ronald reagan', 'popeye', 'bunny'];
 
 costumeList = 'Steven Universe, a crazy old coot, a tiger, a girl in a Robert Palmer video, Pee-wee Herman, Ronald Reagan, Popeye, and a bunny';
 
-// loop for 6 attempts
 for (i = 0; i < 6; i++) {
   costumeGuess[i] = prompt('Guess one of the Halloween costumes Drew has worn in the past 40+ years.');
   var cosGuessNum = i + 1;
@@ -104,22 +107,23 @@ for (i = 0; i < 6; i++) {
   // loop through the costumes array to see if there's a match. if there is, reward and leave loops
   for (var j = 0; j < costumes.length; j++) {
     if (costumeGuess[i].toLowerCase() === costumes[j]) {
+      userTally++;
       costumeCorrect = true;
       alert('Amazing. You guessed one of the ones he remembers! Here\'s the full list, if you\'re curious: ' + costumeList + '.');
       break;
     }
-  } //for loop closing bracket j loop
+  }
   if (costumeCorrect === true) {
     break;
   } else if (i < 5) {
-    alert('Sorry, no. Try again.');
+    alert('Sorry, no. Try again. (' + costumeGuess[i] + '? Really?) ');
   } else if (i = 6) {
     alert('Sorry. You didn\'t guess any of the correct costumes. Here\'s the full list that he remembers, if you\'re curious: ' + costumeList + '.');
   }
-} //for loop closing bracket i loop
+}
 
 
-//    7. loves you?
+//  7. loves you?
 lovesYou = prompt('Final question: does Drew love you?').toUpperCase();
 console.log('Does he love you?: ' + lovesYou);
 
@@ -135,7 +139,7 @@ if (lovesYou === 'YES' || lovesYou === 'Y') {
 // Print a tally of total points with a comment on user's success
 console.log('Total points: ' + userTally);
 alert('Okay, ' + userName + '. You finished the game with ' + userTally + ' points.');
-if (userTally >= 4) {
+if (userTally >= 5) {
   alert('You know Drew very well. Or are a good guesser. Congratulations, ' + userName + '!');
 } else if (userTally >= 1) {
   alert('You should probably check the wiki more often, ' + userName + '. Drew\'s a dynamic person, so that thing changes often.');
