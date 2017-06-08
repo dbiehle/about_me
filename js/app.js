@@ -1,33 +1,31 @@
-'use strict'
-// Design a guessing game about you that involves FIVE yes/no questions.
-// As a developer, I want to keep a tally of the total number of correct answers given by the user, and at the end of the game, tell the user how well they did with a personalized custom message that includes the number of correct answers and also addresses the user by name, e.g. "You got 4 out of 7 questions correct, Bobbi! Better luck next time."
-
-// Use promptfor input and alert for output to the user, unless you are working on the third Stretch Goal.
-// Do not use any 'switch' statements in your JavaScript.
-// Do not write any functions in your JavaScript.
-// Expect that you will probably need both 'for' and 'while' structures for your sixth and seventh questions. But not necessarily.
+'use strict';
+// Design a guessing game about you that involves FIVE yes/no questions and TWO other questions.
 
 // global variables declared
 var userTally = 0;
+var userName;
 var numLegs;
 var breathing;
 var homePlanet;
 var gutBiota;
-var heartBreak;
-var heartBreakNum;
+var heartBreak = [];
+var costumes = [];
+var costumeList;
+var costumeGuess = [];
+var costumeCorrect = false;
 var lovesYou;
 
 // FIVE YES/NO QUESTIONS:
-alert('Presenting here 7 questions about Drew. Provide your best guesses and don\'t plagiarize!');
-//    1. number of legs > 1?
-numLegs = prompt('First off, let\'s talk legs. Does Drew have more than 1 leg, but less than or equal to 3?').toUpperCase();
-console.log('Has >1 leg and <=3: ' + numLegs);
+userName = prompt('Presenting here 7 questions about Drew. Provide your best guesses and don\'t plagiarize! First, though, what can I call you?');
 
-if (numLegs === 'YES' || numLegs === 'Y') {
+//    1. number of legs >=4? (changed from =2 on day 3 to add another no response)
+numLegs = prompt('Okay, let\'s talk legs. Does Drew have 4 or more legs?').toUpperCase();
+console.log('Has 4+ legs: ' + numLegs);
+
+if (numLegs === 'NO' || numLegs === 'N') {
   userTally++;
-  alert('You said "' + numLegs + '". Good guess. But have you actually ever seen both legs in the same room at the same time? ' + userTally + ' point for you. Next question.');
-  // But have you actually ever seen both legs in the same room at the same time? ' userTally + ' point for you. Next question.');
-} else if (numLegs === 'NO' || numLegs === 'N') {
+  alert('You said "' + numLegs + '". Good guess. He has less than 4 legs, as a matter fact. ' + userTally + ' point for you. Next question.');
+} else if (numLegs === 'YES' || numLegs === 'Y') {
   alert('You said "' + numLegs + '". Wrong. Next question.');
 } else {
   alert('I\'m pretty sure that "' + numLegs + '" is not an answer. So... next question.');
@@ -38,12 +36,13 @@ console.log('Still breathing: ' + breathing);
 
 if (breathing === 'YES' || breathing === 'Y') {
   userTally++;
-  alert('You said "' + breathing + '". Whew! Okay, you now have ' + userTally + ' points. Next question.');
+  alert('You said "' + breathing + '". Whew! Okay, you now have ' + userTally + ' point(s). Next question.');
 } else if (breathing === 'NO' || breathing === 'N') {
   alert('What?! "' + breathing + '?!" Check his pulse! Stat! Call his wife! Check the I.C.E. on his phone! Quit standing there with your eyes bulging, man!');
 } else {
-  alert('I\'m just a computer, but I\'m pretty sure "' + breathing + '" is not an answer. You have ' + userTally + ' points.');
+  alert('I\'m just a computer, but I\'m pretty sure "' + breathing + '" is not an answer. You have ' + userTally + ' point(s).');
 }
+
 //    3. home planet still Earth?
 homePlanet = prompt('Is Drew\'s home planet still Earth?').toUpperCase();
 console.log('Still on Earth?: ' + homePlanet);
@@ -57,44 +56,68 @@ if (homePlanet === 'YES' || homePlanet === 'Y') {
   alert('No comprende, chica.');
 }
 
-//    4. healthy gut biota?
-gutBiota = prompt('Does Drew have a healthy gut biota?').toUpperCase();
-console.log('Healthy gut?: ' + gutBiota);
+//    4. troubled gut biota? (changed to 'troubled' from 'healthy' on day 3 to add a no answer)
+gutBiota = prompt('Does Drew have a troubled gut biota?').toUpperCase();
+console.log('Troubled gut?: ' + gutBiota);
 
 if (gutBiota === 'YES' || gutBiota === 'Y') {
+  alert('Wrong. He eats yogurt everyday and drinks kombucha on the reg. You have ' + userTally + ' point(s).');
+} else if (gutBiota === 'NO' || gutBiota === 'N') {
   userTally++;
   alert('Very good. But how did you know that? I\'m getting a creepy vibe from you. You now have ' + userTally + ' points, but I\'d kinda like to take away a point.');
-} else if (gutBiota === 'NO' || gutBiota === 'N') {
-  alert('Wrong. He eats yogurt everyday and drinks kombucha on the reg. You have ' + userTally + ' point(s).');
 } else {
   alert('You said "' + gutBiota + '." Not an answer. I have a question for you, though. Are you gut bacteria with eyes and extremely long fingers?');
 }
 
 //    5. # of times heart has been broken?
-var hbAttempts = [];
 for (var i = 0; i < 4; i++) {
-  hbAttempts[i] = prompt('How many times has Drew\'s heart been broken?');
-  // for following along in the console
+  heartBreak[i] = prompt('How many times has Drew\'s heart been broken?');
+  // guesses added to console
   var guesses = i + 1;
-  console.log('Number of heartbreaks, attempt #' + guesses + ': ' + hbAttempts[i]);
+  console.log('Number of heartbreaks, attempt #' + guesses + ': ' + heartBreak[i]);
   // correct answer
-  if (hbAttempts[i] == 18) {
+  if (heartBreak[i] == 18) {
     userTally++;
     alert('You said \'18\'. You are correct! Wow! How did you guess that? Regardless, you get a point. You now have ' + userTally + '.');
     break;
-  // incorrect answers but continue the loop
-  } else if (i < 3 && hbAttempts[i] < 18) {
-    alert('You said ' + hbAttempts[i] + '. Oh, you sweet naive muckle. More than that. Try again.');
-  } else if (i < 3 && hbAttempts[i] > 18) {
-    alert('You said ' + hbAttempts[i] + '. Dude. I mean... I\'ve loved hard but not THAT hard. Less than that. Try again.');
-  // if this is the last attempt and still not correct
+  // incorrect answers but loop continues
+  } else if (i < 3 && heartBreak[i] < 18) {
+    alert('You said ' + heartBreak[i] + '. Oh, you sweet naive muckle. More than that. Try again.');
+  } else if (i < 3 && heartBreak[i] > 18) {
+    alert('You said ' + heartBreak[i] + '. Dude. I mean... I\'ve loved hard but not THAT hard. Less than that. Try again.');
+  // if this is the last attempt and still not correct, give following alert
   } else if (i = 3) {
     alert('You said ' + hbAttempts[3] + '. No, none of your guesses were correct. The correct answer WAS 18, but you\'ve just made that number go up to 19. You now have ' + userTally + ' point(s).');
   }
 }
 
-// As a developer, I want to add a seventh question to my guessing game that has multiple possible correct answers that are stored in an array. For instance, "Can you guess a state that I have lived in besides Washington?", so that even more of my programming skills are showcased. For now, I will structure this question so that the user has six tries to get a single correct answer, and upon using up those tries OR getting a correct answer, displays a message to the user indicating all of the possible correct answers.
-//    6.
+//    6. Guess one of the Halloween costumes Drew remembers
+costumes = ['steven universe', 'crazy old coot', 'tiger', 'girl in a robert palmer video', 'pee-wee herman', 'ronald reagan', 'popeye', 'bunny'];
+
+costumeList = 'Steven Universe, a crazy old coot, a tiger, a girl in a Robert Palmer video, Pee-wee Herman, Ronald Reagan, Popeye, and a bunny';
+
+// loop for 6 attempts
+for (i = 0; i < 6; i++) {
+  costumeGuess[i] = prompt('Guess one of the Halloween costumes Drew has worn in the past 40+ years.');
+  var cosGuessNum = i + 1;
+  console.log('Costume guess #' + cosGuessNum + ': ' + costumeGuess[i]);
+  // loop through the costumes array to see if there's a match. if there is, reward and leave loops
+  for (var j = 0; j < costumes.length; j++) {
+    if (costumeGuess[i].toLowerCase() === costumes[j]) {
+      costumeCorrect = true;
+      alert('Amazing. You guessed one of the ones he remembers! Here\'s the full list, if you\'re curious: ' + costumeList + '.');
+      break;
+    }
+  } //for loop closing bracket j loop
+  if (costumeCorrect === true) {
+    break;
+  } else if (i < 5) {
+    alert('Sorry, no. Try again.');
+  } else if (i = 6) {
+    alert('Sorry. You didn\'t guess any of the correct costumes. Here\'s the full list that he remembers, if you\'re curious: ' + costumeList + '.');
+  }
+} //for loop closing bracket i loop
+
 
 //    7. loves you?
 lovesYou = prompt('Final question: does Drew love you?').toUpperCase();
@@ -111,11 +134,11 @@ if (lovesYou === 'YES' || lovesYou === 'Y') {
 
 // Print a tally of total points with a comment on user's success
 console.log('Total points: ' + userTally);
-alert('You finished the game with ' + userTally + ' points.');
+alert('Okay, ' + userName + '. You finished the game with ' + userTally + ' points.');
 if (userTally >= 4) {
-  alert('You know Drew very well. Or are a good guesser. Congratulations!');
+  alert('You know Drew very well. Or are a good guesser. Congratulations, ' + userName + '!');
 } else if (userTally >= 1) {
-  alert('You should probably check the wiki more often. Drew\'s a dynamic person, so that thing changes often.');
+  alert('You should probably check the wiki more often, ' + userName + '. Drew\'s a dynamic person, so that thing changes often.');
 } else {
-  alert('You didn\'t get any of the questions correct. That\'s cool. ... No... No, those aren\'t tears. It must be raining.');
+  alert('You didn\'t get any of the questions correct, ' + userName + '. That\'s cool. ... No... No, those aren\'t tears. It must be raining.');
 }
