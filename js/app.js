@@ -15,28 +15,19 @@ var costumeList;
 var costumeGuess = [];
 var costumeCorrect = false;
 var lovesYou;
+var allQuestions = [question1, question2, question3, question4, question5, question6, question7, endLogic];
 
+//  Introduction to quiz
 userName = prompt('Presenting here 7 questions about Drew. Provide your best guesses and don\'t plagiarize! First, though, what can I call you?');
 console.log('User\'s name: ' + userName);
 
-var allQuestions = [
-  question1,
-  question2,
-  question3,
-  question4,
-  question5,
-  question6,
-  question7,
-  endLogic
-];
-
+//  Logged to console to follow see which question the user is on
 for(var i = 0; i < allQuestions.length; i++ ) {
   console.log('This is the value of i: ' + i);
   allQuestions[i]();
 }
 
-
-//    1. number of legs >=4? (changed from =2 on day 3 to add another no response)
+//    1. number of legs >=4?
 function question1(){
   numLegs = prompt('Okay, let\'s talk legs. Does Drew have 4 or more legs?').toUpperCase();
   console.log('Has 4+ legs: ' + numLegs);
@@ -81,7 +72,7 @@ function question3(){
   }
 }
 
-//    4. troubled gut biota? (changed to 'troubled' from 'healthy' on day 3 to add a no answer)
+//    4. troubled gut biota?
 function question4(){
   gutBiota = prompt('Does Drew have a troubled gut biota?').toUpperCase();
   console.log('Troubled gut?: ' + gutBiota);
@@ -92,9 +83,10 @@ function question4(){
     userTally++;
     alert('Very good. But how did you know that? I\'m getting a creepy vibe from you. You now have ' + userTally + ' point(s), but I\'d kinda like to take away a point.');
   } else {
-    alert('You said "' + gutBiota + '." Not an answer. I have a question for you, though. Are you gut bacteria with eyes and extremely long fingers?');
+    alert('You said "' + gutBiota + '." Not an answer. I have a question for you, though. Are you a gut bacterium with eyes and extremely long fingers?');
   }
 }
+
 //    5. # of times heart has been broken?
 function question5(){
   for (var i = 0; i < 4; i++) {
@@ -109,7 +101,7 @@ function question5(){
       break;
     // incorrect answers but loop continues
     } else if (i < 3 && heartBreak[i] < 18) {
-      alert('You said ' + heartBreak[i] + '. Oh, you sweet naive muckle. More than that. Try again.');
+      alert('You said ' + heartBreak[i] + '. Oh, you sweet naive mucket. More than that. Try again.');
     } else if (i < 3 && heartBreak[i] > 18) {
       alert('You said ' + heartBreak[i] + '. Dude. I mean... He\'s loved hard but not THAT hard. Less than that. Try again.');
     } else if (i < 3 && typeof heartBreak[i] === 'string') {
@@ -165,7 +157,7 @@ function question7(){
   }
 }
 
-// Print a tally of total points with a comment on user's success
+// Prints a tally of total points with a comment on user's success
 function endLogic(){
   console.log('Total points: ' + userTally);
   alert('Okay, ' + userName + '. You finished the game with ' + userTally + ' points.');

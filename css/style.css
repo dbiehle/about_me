@@ -4,19 +4,21 @@
 }
 
 body {
-  background: url('https://ak3.picdn.net/shutterstock/videos/4522772/thumb/1.jpg');
+  background: url("../images/profile-improved.jpg");
   background-repeat: no-repeat;
 }
 
 h1 {
-  border: 1px solid white;
+  width: 400px;
+  border-radius: 20%;
   padding: 40px;
+  margin-left: 20px;
   color: darkorange;
+  font-family: 'Montserrat', sans-serif;
   font-size: 40px;
   font-weight: bolder;
-  font-variant: small-caps;
-  background-color: #777777;
-  opacity: 0.9;
+  /*font-variant: small-caps;*/
+  background-color: rgba(100,100,100,0.9);
 }
 
 h2 {
@@ -30,6 +32,10 @@ h2 {
 
 h3 {
   text-decoration:underline;
+}
+
+#id {
+    float: left;
 }
 
 .bodblock {
