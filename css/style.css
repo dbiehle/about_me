@@ -1,59 +1,61 @@
 
 * {
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-weight: bolder;
 }
 
 body {
-  background: url("../images/profile-improved.jpg");
-  background-repeat: no-repeat;
+  background: url("../images/ivy.jpg");
+  background-size: cover;
 }
 
 h1 {
-  width: 400px;
-  border-radius: 20%;
-  padding: 40px;
-  margin-left: 20px;
-  color: darkorange;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 40px;
-  font-weight: bolder;
-  /*font-variant: small-caps;*/
-  background-color: rgba(100,100,100,0.9);
+  width: 40%;
+  padding: 20px;
+  background-color: rgba(200,200,200,.75);
+  border-radius: 10px 5px;
+  margin: 10px auto 10px auto;
+  font-size: 50px;
+  text-align: center;
 }
 
 h2 {
-  font-style: italic;
-  border: 1px solid white;
-  padding: 15px 10px;
-  width: 250px;
-  background-color: #aaaaaa;
-  margin-left: 10px;
+  width: 35%;
+  padding: 20px;
+  background-color: rgba(200,200,200,.75);
+  border-radius: 10px 5px;
+  margin: 10px auto 10px auto;
+  text-align: center;
 }
 
 h3 {
   text-decoration:underline;
 }
 
-#id {
-    float: left;
-}
-
-.bodblock {
-  background-color: #cccccc;
-  opacity: .9;
-  padding: 5px 15px;
+#bodblock {
+  width: 40%;
+  padding: 20px;
+  background-color: rgba(200,200,200,.75);
+  border-radius: 10px 5px;
   margin: 10px;
-}
-
-.jobloc {
-  font-style: italic;
+  float: left;
   font-weight: bold;
 }
 
-.yearstv {
+#par_note {
   font-style: italic;
+  font-weight: lighter;
+}
+
+aside {
+  width: 40%;
+  padding: 20px;
+  background-color: rgba(200,200,200,.75);
+  border-radius: 10px 5px;
+  margin: 10px;
+  float: right;
 }
 
 li {
-  padding: 8px;
+  padding: 5px;
 }
